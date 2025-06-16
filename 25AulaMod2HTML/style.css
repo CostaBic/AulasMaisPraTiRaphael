@@ -1,0 +1,75 @@
+/* Define o estilo base do corpo da página */
+body {
+  font-family: Arial, sans-serif; /* Usa uma fonte limpa e sem serifa */
+  background-color: #f2f2f2;      /* Cor de fundo cinza-claro */
+  padding: 20px;                  /* Espaçamento interno nas bordas da página */
+}
+
+/* Estilo para a <div> que envolve o formulário */
+div {
+  background-color: #fff;             /* Fundo branco para destacar o formulário */
+  border: 1px solid #ccc;             /* Borda cinza clara */
+  border-radius: 8px;                 /* Cantos arredondados */
+  max-width: 500px;                   /* Largura máxima de 500px */
+  margin: auto;                       /* Centraliza horizontalmente na tela */
+  padding: 20px;                      /* Espaçamento interno */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave ao redor da caixa */
+}
+
+/* Aplica estilo base para rótulos, inputs, select e textarea */
+label,
+input,
+select,
+textarea {
+  display: block;     /* Cada elemento ocupa uma linha inteira */
+  width: 100%;        /* Largura total da div-pai */
+  margin-bottom: 15px;/* Espaço inferior entre os campos */
+}
+
+/* Estiliza inputs do tipo radio e checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;                /* Mantém tamanho automático (padrão do navegador) */
+  display: inline-block;      /* Exibe ao lado do texto, não como bloco */
+  margin-right: 5px;          /* Espaço entre o botão e o texto */
+}
+
+/* Corrige a aparência de alguns <label> que acompanham radio/checkbox */
+label[for="male"],
+label[for="female"],
+label[for="Terms"] {
+  display: inline-block; /* Alinha os labels ao lado dos inputs */
+  margin-right: 15px;    /* Espaço entre os labels */
+  font-weight: normal;   /* Deixa o texto com peso normal (sem negrito) */
+}
+
+/* Estilo visual para os campos de texto, email, senha, select e textarea */
+input[type="text"],
+input[type="date"],
+input[type="file"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  padding: 10px;            /* Espaço interno dentro do campo */
+  border: 1px solid #ccc;   /* Borda cinza clara */
+  border-radius: 5px;       /* Cantos arredondados */
+  box-sizing: border-box;   /* Inclui padding e border no cálculo do width */
+}
+
+/* Estilo do botão de envio */
+button {
+  background-color: #004080; /* Cor de fundo azul escuro */
+  color: white;              /* Cor do texto branca */
+  padding: 10px 20px;        /* Espaço interno (vertical e horizontal) */
+  border: none;              /* Remove borda padrão */
+  border-radius: 5px;        /* Cantos arredondados */
+  font-size: 16px;           /* Tamanho da fonte */
+  cursor: pointer;           /* Cursor tipo "mãozinha" ao passar o mouse */
+  transition: background-color 0.3s ease; /* Efeito suave ao trocar a cor no hover */
+}
+
+/* Efeito quando o mouse passa sobre o botão */
+button:hover {
+  background-color: #0066cc; /* Muda para um azul mais claro */
+}

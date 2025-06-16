@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários em HTML</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div>
+        <label>Nome completo:</label>
+        <!--
+        O placeholder é usado para manter uma mensagem no campo de escrita enquento o usuário não digita nada.
+        -->
+        <input type="text" placeholder="Digite seu nome complerto">
+
+         <label>Nascimento:</label>
+        <input type="date">
+       
+        <label>Currículo:</label>
+        <input type="file">
+
+        <label>Email:</label>
+        <input type="email" placeholder="Digite seu email aqui">
+        
+        <label>Senha:</label>
+        <input type="password" placeholder="Digite sua senha aqui">
+       
+        <label>Gênero:</label>
+        <!--
+        O for indica o que este elemento está etiquetando, no caso é masculino e feminino (male, female).
+        -->
+        <label for="male">
+             <!--
+        Neste caso ele tem um tipo que é radio e um valor intrínseco que é male também e tem um nome. O nome diz respeito ao conjunto de botões ao qual ele faz parte. Se os nomes dos botões masculino e feminino não forem do mesmo grupo de botões eles não funcionam corretamente.
+        -->
+            <input type="radio" value="male" name="genere"> Masculino
+        </label>
+        <label for="female">
+            <input type="radio" value="female" name="genere"> Feminino
+        </label>
+       
+        <!--
+        Quando criarmos um checkbox que seja obrigatório marcar, usamos o required:
+        -->
+        <label for="Terms">
+            <input type="checkbox" name="terms" required>Aceito os termos de condição
+        </label>
+      
+        <!--
+        Para criar uma lista de seleção usamos a tag select:
+        -->
+        <label for="city">Cidade:</label>
+        <select name="City">
+            <option value="RS">Jaguarão</option>
+            <option value="RS">Porto Alegre</option>
+            <option value="SC">Florianópolis</option>
+        </select>
+
+        <!--
+        Para criar um quadro de mensagem (rows é quantas linhas aparecem na tela sem precisar rolar):
+        -->
+      
+        <label for="message">Mensagem:</label>
+        <textarea name="message" rows="4" placeholder="Deixe sua mensagem aqui" ></textarea>
+       
+        <button type="submit">Cadastrar</button>
+    </div>
+</body>
+</html>
