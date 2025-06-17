@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;      /* Define uma fonte moderna e fácil de ler */
+  background-color: #f9f9f9;           /* Fundo cinza claro para melhor contraste */
+  color: #333;                         /* Cor do texto (cinza escuro para boa leitura) */
+  line-height: 1.6;                    /* Espaçamento entre linhas */
+  margin: 0;
+  padding: 20px;
+}
+
+/* Estilo dos parágrafos */
+p {
+  max-width: 800px;                    /* Limita a largura para evitar texto muito longo */
+  margin-bottom: 15px;                /* Espaçamento entre parágrafos */
+}
+
+/* Estilo dos títulos principais */
+h1, h3 {
+  color: #004080;                      /* Azul escuro nos títulos */
+  margin-top: 40px;                    /* Espaço antes dos títulos */
+}
+
+/* Estilo dos links */
+a {
+  color: #0066cc;                      /* Azul claro para links */
+  text-decoration: none;              /* Remove o sublinhado padrão */
+  font-weight: bold;                  /* Deixa o link em negrito */
+}
+
+/* Estilo quando o mouse passa sobre o link */
+a:hover {
+  text-decoration: underline;         /* Sublinha o link ao passar o mouse */
+  color: #003366;                     /* Muda a cor para azul mais escuro */
+}
+
+/* Estilo da imagem */
+img {
+  max-width: 100%;                    /* Imagem não ultrapassa a largura do contêiner */
+  height: auto;                       /* Altura proporcional à largura */
+  border: 1px solid #ccc;             /* Borda leve ao redor da imagem */
+  border-radius: 8px;                 /* Cantos arredondados */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para âncoras (como #seção-ancorada) */
+:target {
+  scroll-margin-top: 80px;            /* Garante que a âncora apareça com espaço visível no topo */
+  background-color: #e0f7ff;          /* Fundo claro ao navegar para âncoras */
+  border-left: 4px solid #0099cc;     /* Destaque visual com borda azul */
+  padding-left: 10px;
+  transition: background-color 0.5s ease;
+}
+
+/* Estilização geral da tabela */
+table {
+  width: 100%;                        /* A tabela ocupa toda a largura possível */
+  max-width: 900px;                   /* Limite para não ficar exagerada em telas grandes */
+  margin: 40px auto;                  /* Centraliza a tabela na tela */
+  border-collapse: collapse;         /* Junta as bordas das células */
+  background-color: #ffffff;         /* Fundo branco */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para destacar visualmente */
+  border-radius: 10px;               /* Bordas arredondadas */
+  overflow: hidden;                  /* Garante que os cantos arredondados afetem os elementos internos */
+}
+
+/* Cabeçalho da tabela */
+th {
+  background-color: #004080;         /* Fundo azul escuro */
+  color: white;                      /* Texto branco */
+  padding: 16px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Células normais da tabela */
+td {
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;            /* Alinha verticalmente ao centro */
+  border-top: 1px solid #ccc;        /* Linha separadora entre as linhas */
+}
+
+/* Container do vídeo para torná-lo responsivo */
+td div {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;            /* Proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Estilo do iframe (vídeo) */
+td iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;                       /* Ocupa toda a largura disponível */
+  height: 100%;                      /* Altura automática proporcional à largura */
+  border: none;                      /* Remove borda padrão */
+  border-radius: 8px;
+}
+
