@@ -1,0 +1,43 @@
+body {
+    background-color: #ccc;
+}
+/*<!--
+    Conceito de herança em css é que:
+    abaixo, parágrafo é filho de div, por tanto, ele vai herdar as estilizações de div.
+    Podemos observar que a cor de div aparece na escrita em p:
+    -->*/
+.pai {
+    color: green;
+    font-family: arial;
+    border: 1px solid red;
+    margin: 10px;
+}
+
+p {
+    border: inherit;
+    margin: inherit;
+}
+
+article p {
+    color: blue;
+}
+/*
+O elemento > afeta somente os filho diretos, ou seja, todo o link (a) que estiver dentro da tag article mas se dentro de article tiver um p e dentro do p um a, este não será afetado pois não é filho direto:
+*/
+article > a {
+    color: green
+}
+
+
+/* O elemento + afeta somente a primeira ocorrência e as próximas não. No exemplo, temos vários p dentro do h1, mas ele muda a cor do primeiro apenas e dos outros não.
+*/
+h1 + p { 
+    color: red;
+}
+
+/*
+Já este modifica todos sem distinção.
+*/
+h1 ~ p {
+    color: red;
+}
