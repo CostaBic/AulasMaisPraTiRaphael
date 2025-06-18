@@ -1,0 +1,54 @@
+h1 {
+    color: blue;
+    font-size: 32px;
+}
+
+p {
+    color: gray;
+    line-height: 1.5;
+}
+
+/*
+Podemos criar estilos para aplicar somente em parágrafos específicos que pertencem a uma classe, neste caso a classe destaque:
+*/
+.destaque {
+background-color: yellow;
+font-weight: bold;
+}
+/*
+Aqui modificamos somente o cabeçalho com id cabecalho:
+*/
+#cabecalho {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+/*Estilizar li(Item da Lista) que estejam dentro de ul(Lista Não Ordenada), quero que sejam assim:*/
+ul li {
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*Mas dentro da ul, todas as li que estiverem classificadas com o id importante quero que sejam vermelhas:
+*/
+ul li.importante {
+    color: red;
+}
+
+/*
+hover ou pseudo classe
+*/ 
+a:hover {
+    text-decoration: none;
+    color: goldenrod;
+}
+
+h1, h2 {
+    text-align: center;
+    color: blueviolet;
+    }
+
+    body {
+        background-color: aliceblue;
+        margin: 10px;
+        
+    }
