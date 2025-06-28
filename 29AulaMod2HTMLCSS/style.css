@@ -1,0 +1,103 @@
+/* Estilo do cabeçalho da página */
+header {
+  background-color: #004080;         /* Fundo azul escuro */
+  color: white;                      /* Texto branco */
+  padding: 20px;                     /* Espaço interno em todas as direções */
+}
+
+/* Estilo do título dentro do header */
+header h1 {
+  margin-top: 20px;                  /* Espaço acima do título */
+  font-size: 24px;                   /* Tamanho da fonte do título */
+  text-align: center;                /* Centraliza o texto */
+}
+
+/* Navegação dentro do header */
+header nav ul {
+  list-style: none;                  /* Remove marcadores de lista */
+  padding: 0;                        /* Remove padding padrão */
+  display: flex;                     /* Coloca os links em linha */
+  justify-content: center;          /* Centraliza horizontalmente */
+  gap: 15px;                         /* Espaço entre os links */
+}
+
+/* Área principal da página */
+main.produtos-container {
+  display: flex;
+  flex-wrap: wrap;                  /* Quebra os cartões em várias linhas se necessário */
+  gap: 20px;                        /* Espaço entre os cartões */
+  justify-content: center;         /* Centraliza os cartões na tela */
+  padding: 40px 20px;              /* Espaço interno */
+  background-color: #f9f9f9;       /* Fundo suave para contraste com os cartões */
+}
+
+
+.nav-link {
+  display: inline-block;              /* Faz o link se comportar como um botão em linha (permite largura, altura, padding, etc) */
+  padding: 10px 20px;                 /* Espaçamento interno (10px em cima/baixo, 20px nos lados) */
+  margin: 5px;                        /* Espaço externo (distância entre os botões) */
+  background-color: #004080;         /* Cor de fundo azul escuro */
+  color: white;                      /* Cor da fonte (letra) branca */
+  text-decoration: none;             /* Remove o sublinhado padrão dos links */
+  border-radius: 5px;                /* Arredonda os cantos do botão */
+  font-weight: bold;                 /* Deixa o texto em negrito */
+  transition: background-color 0.3s ease; /* Cria uma transição suave ao mudar a cor de fundo (efeito ao passar o mouse) */
+}
+
+.nav-link:hover {
+  background-color: #0066cc;         /* Quando o mouse passa por cima, muda o fundo para um azul mais claro */
+}
+
+nav ul {
+  list-style: none;         /* Remove os pontinhos da lista */
+  padding: 0;               /* Remove espaçamento interno padrão */
+  margin: 0;                /* Remove margens externas */
+  display: flex;            /* Alinha os itens em linha horizontal */
+  gap: 10px;                /* Espaço entre os botões */
+  justify-content: space-around;
+}
+
+.produtos-container {
+display: flex;
+  flex-wrap: wrap;             /* Faz os cartões quebrarem linha se necessário */
+  justify-content: center;     /* Centraliza os cartões na tela */
+  gap: 20px;                   /* Espaço entre os cartões */
+  padding: 20px;
+}
+
+.card-produto {
+  background-color: white;                /* Fundo branco do cartão */
+  border: 1px solid #ccc;                 /* Borda cinza clara ao redor do cartão */
+  border-radius: 10px;                    /* Cantos arredondados do cartão */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Sombra suave para dar profundidade */
+  padding: 15px;                          /* Espaçamento interno (entre conteúdo e borda) */
+  width: 300px;                           /* Largura fixa do cartão */
+  text-align: center;                     /* Centraliza o texto e os elementos dentro do cartão */
+  transition: transform 0.2s;             /* Suaviza a animação de transformação ao passar o mouse */
+}
+
+.card-produto:hover {
+  transform: scale(1.03);                /* Aumenta levemente o tamanho do cartão (zoom) */
+}
+
+.card-produto img {
+  width: 100%;                           /* Imagem ocupa toda a largura do cartão */
+  height: auto;                          /* Altura ajustada proporcionalmente à largura */
+  border-radius: 5px;                    /* Cantos levemente arredondados na imagem */
+  margin-bottom: 10px;                   /* Espaço abaixo da imagem */
+}
+
+.card-produto button {
+  background-color: #004080;             /* Fundo azul escuro */
+  color: white;                          /* Texto branco */
+  padding: 10px 20px;                    /* Espaço interno: 10px vertical, 20px horizontal */
+  border: none;                          /* Remove a borda padrão do botão */
+  border-radius: 5px;                    /* Cantos arredondados no botão */
+  cursor: pointer;                       /* Cursor de mão ao passar por cima (indica clicável) */
+  font-weight: bold;                     /* Texto em negrito */
+  margin-top: 10px;                      /* Espaço acima do botão */
+}
+
+.card-produto button:hover {
+  background-color: #0066cc;             /* Muda para azul mais claro ao passar o mouse */
+}
