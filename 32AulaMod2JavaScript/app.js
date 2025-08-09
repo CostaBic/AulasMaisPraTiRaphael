@@ -1,4 +1,8 @@
-const formAdicionar = document.getElementById('form-adicionar') //Pega o elemento <form> do HTML com o id="form-adicionar" e guarda na variável formAdicionar. Isso permite manipular e ouvir eventos nesse formulário.
+//O navegador oferece uma API para manipular a árvore DOM (Document Object Model). Este objeto chamamos de document:
+//Com document podemos capturar elementos para manipular com JavaScript.
+const formAdicionar = document.getElementById('form-adicionar') //Este comando cria uma especie de link ou ponteiro entre a variável formAdicionar e o elemento HTML <form> com id="form-adicionar".
+//Agora esta variável tem poderes de trabalhar em cima deste formulário.
+
 const inputItem = document.getElementById('input-item') //Pega o campo de texto (<input>) onde o usuário digita a nova tarefa.
 const listaItens = document.getElementById('lista-itens') //Pega a <ul> ou <ol> onde os itens serão listados.
 const btnLimpar = document.getElementById('btn-limpar') //Pega o botão de apagar tudo (id="btn-limpar") para adicionar uma ação de limpeza da lista.
@@ -13,16 +17,18 @@ window.addEventListener('DOMContentLoaded', () => { //window.addEventListener('D
     }
 })
 
-function salvarDados() {
-    localStorage.setItem('listaCompras', JSON.stringify(itens)) //Converte o array itens para string.
+function salvarDados() { //função que salva os dados no localStorage.
+    //localStorage é uma API do navegador que permite armazenar dados no navegador do usuário.
+    localStorage.setItem('listaCompras', JSON.stringify(itens)) //Converte um valor em JavaScript para uma string JSON e salva no localStorage com a chave 'listaCompras'.
 }
 
-function renderizarLista() {
-    listaItens.innerHTML = ''
+function renderizarLista() { //função que renderiza a lista de itens na tela.
+    //Esta função é responsável por atualizar a lista de itens exibida na página.
+    listaItens.innerHTML = '' //Pega o HTML interno da constante listaItens (innerHTML) e faz receber nada ('') ou seja, limpa a lista antes de renderizar novamente, para evitar duplicação de itens.
 
-    itens.forEach((item, index) => {
-        const li = document.createElement('li')
-        li.textContent = item
+    itens.forEach((item, index) => { //Itera sobre cada item (percorre todos os itens) do array itens, usando forEach que executa uma função para cada item.
+        const li = document.createElement('li') //Cria um novo elemento HTML <li> (item da lista).
+        li.textContent = item //Pega o conteúdo do item (elemento do array) e coloca dentro do <li> criado.
 
         // Aplica estilo se já estiver concluído
         if (item.concluido) {
@@ -39,28 +45,33 @@ function renderizarLista() {
             renderizarLista();
         });
 
-        const btnRemover = document.createElement('button')
-        btnRemover.innerHTML = '<img src="assets/remover.png" alt="Remover" width="16" height="16">';
-        btnRemover.addEventListener('click', () => {
-            removerItem(index)
+        const btnRemover = document.createElement('button') //Cria um novo botão no HTML para remover o item.
+        btnRemover.innerHTML = '<img src="assets/remover.png" alt="Remover" width="16" height="16">'; //Coloca uma imagem como botão.
+        btnRemover.addEventListener('click', () => { //Toda a vez que clicar no botão, vai executar a função removerItem
+            removerItem(index) //Passa o índice do item para a função removerItem, que remove o item do array e atualiza a lista.
         })
         
         li.appendChild(btnConcluido);
-        li.appendChild(btnRemover)
-        listaItens.appendChild(li)
+        li.appendChild(btnRemover) //Faz o botão aparecer na tela, dentro do <li>.
+        listaItens.appendChild(li) //Faz o <li> aparecer na lista de itens (listaItens).
     })
 }
 
+/*Temos um étodo chamado addEventListener que fica ouvindo quando temos um evento, como uma renderização de página, clique em botão, etc.
+Mas temos que indicar qual evento queremos ficar ouvindo e o que queremos fazer depois do evento*/
 formAdicionar.addEventListener('submit', (evento) => {
+    /*variavelOuConstanteLinkadaAoHTML.addEventListener('eventoQueQueremos', (escolhaQualquerNomeDeVariavelParaArmazenarOEvento) => {*/
     evento.preventDefault()
-    const novoItem = inputItem.value.trim()
-    if(novoItem === '') return; 
-    itens.push(novoItem)
+    const novoItem = inputItem.value.trim() /*Cria um novo item somente no JavaScript, sem enviar para o servidor.
+    O método trim() remove espaços em branco no início e no final da string */
+    if(novoItem === '') return; // Se o campo estiver vazio, não faz nada.
+    itens.push(novoItem) //Adiciona o novo item ao array itens.
 
-    salvarDados()
-    renderizarLista()
+    salvarDados() //Chama a função que salva os dados no localStorage (memória do navegador) para persistência.
+    renderizarLista() //Chama a função que renderiza a lista atualizada na tela.
 
-    inputItem.value = ''
+    inputItem.value = '' //Limpa o campo de entrada após adicionar o item.
+    inputItem.focus() //Coloca o foco de volta no campo de entrada para facilitar a adição de novos itens.
 })  
 
 function removerItem(indice) {
