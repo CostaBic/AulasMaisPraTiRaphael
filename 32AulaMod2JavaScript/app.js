@@ -9,11 +9,16 @@ const btnLimpar = document.getElementById('btn-limpar') //Pega o botão de apaga
 
 let itens = [] //Cria um array vazio que vai armazenar todos os itens da lista (em memória).
 
-window.addEventListener('DOMContentLoaded', () => { //window.addEventListener('DOMContentLoaded', ...): Executa o código quando o HTML for carregado (antes das imagens e outros recursos).
-    const dados = localStorage.getItem('listaCompras')
-    if(dados) {
-        itens = JSON.parse(dados)
-        renderizarLista()
+window.addEventListener('DOMContentLoaded', () => { 
+    /*
+    Adiciona um evento que escuta quando o conteúdo do DOM (HTML) foi completamente carregado.
+    Isso garante que o código dentro dessa função só será executado depois que todo o HTML estiver pronto.
+    window.addEventListener('DOMContentLoaded', ...): Executa o código quando o HTML for carregado (antes das imagens e outros recursos).
+    */
+    const dados = localStorage.getItem('listaCompras') //Pega os dados salvos no localStorage (memória do navegador) com a chave 'listaCompras'.
+    if(dados) { //Se houver dados. Se não houver dados, não faz nada.
+        itens = JSON.parse(dados) //Converte a string JSON de volta para um array JavaScript e atribui à variável itens.
+        renderizarLista() //Chama a função que renderiza a lista na tela.
     }
 })
 
@@ -35,7 +40,7 @@ function renderizarLista() { //função que renderiza a lista de itens na tela.
             li.style.textDecoration = 'line-through';
             li.style.color = 'gray';
         }
-
+        /*
         // Botão de concluir
         const btnConcluido = document.createElement('button');
         btnConcluido.innerHTML = '<img src="assets/check.png" alt="Concluir" width="16" height="16">';
@@ -44,6 +49,19 @@ function renderizarLista() { //função que renderiza a lista de itens na tela.
             salvarDados();
             renderizarLista();
         });
+        
+
+        // Checkbox de concluir
+        const chkConcluido = document.createElement('input');
+        chkConcluido.type = 'checkbox';
+        chkConcluido.checked = item.concluido || false; // mantém estado salvo
+
+        chkConcluido.addEventListener('change', () => {
+            itens[index].concluido = chkConcluido.checked;
+            salvarDados();
+            renderizarLista();
+        });
+        */
 
         const btnRemover = document.createElement('button') //Cria um novo botão no HTML para remover o item.
         btnRemover.innerHTML = '<img src="assets/remover.png" alt="Remover" width="16" height="16">'; //Coloca uma imagem como botão.
@@ -51,7 +69,8 @@ function renderizarLista() { //função que renderiza a lista de itens na tela.
             removerItem(index) //Passa o índice do item para a função removerItem, que remove o item do array e atualiza a lista.
         })
         
-        li.appendChild(btnConcluido);
+        //li.appendChild(btnConcluido);
+        //li.appendChild(chkConcluido);
         li.appendChild(btnRemover) //Faz o botão aparecer na tela, dentro do <li>.
         listaItens.appendChild(li) //Faz o <li> aparecer na lista de itens (listaItens).
     })
@@ -74,17 +93,17 @@ formAdicionar.addEventListener('submit', (evento) => {
     inputItem.focus() //Coloca o foco de volta no campo de entrada para facilitar a adição de novos itens.
 })  
 
-function removerItem(indice) {
-    itens.splice(indice, 1)
+function removerItem(indice) { //Função que remove um item do array itens pelo índice.
+    itens.splice(indice, 1) //O método splice() remove um ou mais elementos do array a partir do índice especificado. Aqui, remove 1 item no índice fornecido.
     salvarDados()
     renderizarLista()
 }
 
-btnLimpar.addEventListener('click', () => {
-    if(confirm('Deseja realmente limpar toda a lista?')) { 
-        itens = []
-        salvarDados()
-        renderizarLista()
+btnLimpar.addEventListener('click', () => { //Adiciona um evento de clique no botão de limpar a lista. (Fica ouvindo este botão)
+    if(confirm('Deseja realmente limpar toda a lista?')) { //Pede confirmação do usuário.
+        itens = [] //Faz receber um array vazio que limpa a lista de itens.
+        salvarDados() //Chama a função que salva os dados no localStorage (memória do navegador) para persistência.
+        renderizarLista()//Chama a função que renderiza a lista atualizada na tela.
     }
 })
 
